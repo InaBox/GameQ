@@ -1,0 +1,27 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Sat Jan 10 09:59:27 2015
+
+   Source : C:\Users\Maria\Documents\Visual Studio 2013\Projects\GameQ\GameQ\bin\
+     Dest : C:\Users\Maria\Documents\Visual Studio 2013\Projects\GameQ\GameQ\App_Data\NuGetBackup\20150110-095926\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Users\Maria\Documents\Visual Studio 2013\Projects\GameQ\GameQ\bin\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+   Ended : Sat Jan 10 09:59:27 2015
