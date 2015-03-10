@@ -5,15 +5,19 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="gameQApp">
   <head>
 
     <title>@CurrentPage.Name | @CurrentPage._siteTitle</title>
-	
-	<!-- Fonts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="/frontend/js/angular-route.js"></script>
+    <script src="/frontend/js/xml2json.js"></script>
+	  <script src="/frontend/js/controllers.js"></script>
+    <!-- Fonts -->
 	
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/frontend/css/style.css">
 
   </head>
 
@@ -21,8 +25,8 @@
     <header>
       	Header
     </header>
-	
-    @RenderBody()
+    	
+      @RenderBody()
 
     <footer class="field dark">
     	Footer

@@ -62,8 +62,3 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
-
-/* line 1, ../sass/_test.scss */
-body {
-  background: red;
-}

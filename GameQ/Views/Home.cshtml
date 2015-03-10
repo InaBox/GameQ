@@ -2,3 +2,11 @@
 @{
     Layout = "Master.cshtml";
 }
+
+<div class="main" ng-controller='HomeController'>
+	<p>{{greeting.text}}</p>
+</div>
+
+<div class="search-result" ng-controller='SearchController'>
+    @Html.Action("SearchGames", "SearchGamesSurface")
+</div>
