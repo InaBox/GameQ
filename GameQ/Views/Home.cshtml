@@ -1,12 +1,59 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = "Master.cshtml";
 }
 
-<div class="main" ng-controller='HomeController'>
-	<p>{{greeting.text}}</p>
-</div>
 
-<div class="search-result" ng-controller='SearchController'>
-    @Html.Action("SearchGames", "SearchGamesSurface")
+<div class="container main">
+
+	<div class="row" ng-controller='SearchController'>
+		<div class="search-result col-md-6">
+		    <input type="text" ng-model="search.query">
+		    <button ng-click="searchGames(search.query)">Search</button>
+			<p>{{search.message}}</p>
+		    <ul>
+		    	<li ng-repeat="game in games">{{game.name.__text}} <button ng-click="getGame(game._objectid)">Add</button></li>
+		    </ul>
+		</div>
+		<div class="col-md-6">
+			<h1 ng-bind="singleGame.name"></h1>
+			<div>
+				<div class="row">
+					<label for="title">Name</label>
+					<input type="text" name="title" id="title" ng-value="singleGame.name">
+				</div>
+
+				<div class="row">
+					<label for="publicationyear">Publicaton year</label>
+					<input type="text" name="publicationyear" id="publicationyear" ng-value="singleGame.yearpublished">
+				</div>
+
+				<div class="row">
+					<label for="category">Category</label>
+					<input type="text" name="category" id="category" ng-value="singleGame.boardgamecategory">
+				</div>
+
+				<div class="row">
+					<label for="minPlayers">Minimum players</label>
+					<input type="text" name="minPlayers" id="minPlayers" ng-value="singleGame.minplayers">
+				</div>
+
+				<div class="row">
+					<label for="maxPlayers">Maximum players</label>
+					<input type="text" name="maxPlayers" id="maxPlayers" ng-value="singleGame.maxplayers">
+				</div>
+
+				<div class="row">
+					<label for="minplaytime">Minimum playing time</label>
+					<input type="text" name="minplaytime" id="minplaytime" ng-value="singleGame.minplaytime">
+				</div>
+
+				<div class="row">
+					<label for="maxplaytime">Maximum players</label>
+					<input type="text" name="maxplaytime" id="maxplaytime" ng-value="singleGame.maxplaytime">
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>

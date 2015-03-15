@@ -2,16 +2,29 @@
 var gameQApp = angular.module('gameQApp', []);
 
 
-
-// configure the module.
-// in this example we will create a greeting filter
-gameQApp.controller('HomeController', function($scope) {
-	$scope.greeting = {text: 'hey'};
-});
-
 gameQApp.controller('SearchController', function ($scope, $http) {
-  $http.get('http://www.boardgamegeek.com/xmlapi/search?search=Crossbows%20and%20Catapults').success(function(data) {
-    $scope.games = data;
-  });
+	var x2js = new X2JS();
+
+	$scope.searchGames = function(query) {
+		$http.get('http://localhost:9292/www.boardgamegeek.com/xmlapi/search?search=' + query).success(function(data) {
+		  	var jsonGames =  x2js.xml_str2json( data );
+		  	$scope.games = jsonGames.boardgames.boardgame;
+		  	if ($scope.games == undefined) {
+		  		$scope.search.message = "No results";
+		  	} else {
+		  		$scope.search.message = "";
+		  		console.log($scope.games);
+		  	};
+		});
+	}
+
+	$scope.getGame = function(id) {
+		$http.get('http://localhost:9292/www.boardgamegeek.com/xmlapi/boardgame/' + id).success(function(data) {
+		  	var jsonGame =  x2js.xml_str2json( data );
+		  	$scope.singleGame = jsonGame.boardgames.boardgame;
+		  	console.log($scope.singleGame);
+		});
+	}
+
 });
 
