@@ -1,6 +1,12 @@
 // declare a module
-var gameQApp = angular.module('gameQApp', []);
+var gameQApp = angular.module('gameQApp', ['ngRoute']);
 
+gameQApp.config(function ($routeProvider) {
+	$routeProvider
+		.when('/search', {templateUrl: '/frontend/js/partials/search.html', controller: 'SearchController'})
+      	.when('/details', { templateUrl: '/frontend/js/partials/details.html', controller: 'GameDetailsController'})
+      	.otherwise({redirectTo: '/search'});
+});
 
 gameQApp.controller('SearchController', function ($scope, $http) {
 	var x2js = new X2JS();
