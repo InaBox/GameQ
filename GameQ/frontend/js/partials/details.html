@@ -1,0 +1,63 @@
+<div class="row">
+		<div class="col-md-12">
+			<h1 ng-bind="singleGame.name"></h1>
+			<div>
+				<div class="row">
+					<label for="title">Name</label>
+					<p>{{singleGame.name.__text}}</p>
+				</div>
+				<div class="row">
+					<label for="title">Designer</label>
+					<p>{{singleGame.boardgamecategory.__text}}</p>
+				</div>
+				<div class="row">
+					<label for="title">Boardgame family</label>
+					<p>{{singleGame.boardgamefamily.__text}}</p>
+				</div>
+				<div class="row">
+					<label for="title">Boardgame publisher</label>
+					<p>{{singleGame.boardgamepublisher.__text}}</p>
+				</div>
+				<div class="row">
+					<label for="title">Boardgame version</label>
+					<p>{{singleGame.boardgameversion.__text}}</p>
+				</div>		
+				<div class="row">
+					<label for="publicationyear">Publicaton year</label>
+					<p>{{singleGame.yearpublished}}</p>
+				</div>
+				<div class="row">
+					<label for="publicationyear">Description</label>
+					<p>{{singleGame.description}}</p>
+				</div>
+				<div class="row">
+					<label for="category">Category</label>
+					<ul ng-repeat="category in singleGame.boardgamecategory">
+						<li>{{category.__text}}</li>
+					</ul>
+				</div>
+
+				<div class="row">
+					<label for="minPlayers">Minimum players</label>
+					<p>{{singleGame.minplayers}}</p>
+				</div>
+
+				<div class="row">
+					<label for="maxPlayers">Maximum players</label>
+					<p>{{singleGame.maxplayers}}</p>
+				</div>
+
+				<div class="row">
+					<label for="minplaytime">Minimum playing time</label>
+					<p>{{singleGame.minplaytime}}</p>
+				</div>
+
+				<div class="row">
+					<label for="maxplaytime">Maximum players</label>
+					<p>{{singleGame.maxplaytime}}</p>
+				</div>
+			</div>
+		</div>
+
+		<button ng-click="addGame(singleGame)">Add game</button>
+</div>
