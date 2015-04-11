@@ -2,7 +2,7 @@
 		<div class="search-result col-md-6">
 		    <input type="text" ng-model="search.query">
 		    <button ng-click="searchGames(search.query)">Search</button>
-			<p>{{search.message}}</p>
+			<h2>{{search.message}}</h2>
 		    <ul>
 		    	<li ng-repeat="game in games">{{game.name.__text}} 
 		    		<button ng-click="getGame(game._objectid)">Add</button>

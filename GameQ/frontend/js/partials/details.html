@@ -3,37 +3,62 @@
 			<h1 ng-bind="singleGame.name"></h1>
 			<div>
 				<div class="row">
-					<label for="title">Name</label>
-					<p>{{singleGame.name.__text}}</p>
+					<img src="{{singleGame.image}}" alt="{{singleGame.name}}" class="col-md-6">
+					<div class="col-md-6">
+						<label for="title">Name</label>
+						<p>{{singleGame.name}}</p>
+					</div>
 				</div>
 				<div class="row">
-					<label for="title">Designer</label>
-					<p>{{singleGame.boardgamecategory.__text}}</p>
+					<label for="title">Designers</label>
+					<ul ng-repeat="designer in singleGame.designers">
+						<li>{{designer}}</li>
+					</ul>
 				</div>
 				<div class="row">
 					<label for="title">Boardgame family</label>
-					<p>{{singleGame.boardgamefamily.__text}}</p>
+					<p>{{singleGame.family}}</p>
 				</div>
 				<div class="row">
-					<label for="title">Boardgame publisher</label>
-					<p>{{singleGame.boardgamepublisher.__text}}</p>
+					<label for="title">Publishers</label>
+					<ul ng-repeat="publisher in singleGame.publishers">
+						<li>{{publisher}}</li>
+					</ul>
+				</div>
+				<div class="row">
+					<label for="title">Artists</label>
+					<ul ng-repeat="artist in singleGame.artists">
+						<li>{{artist}}</li>
+					</ul>
 				</div>
 				<div class="row">
 					<label for="title">Boardgame version</label>
-					<p>{{singleGame.boardgameversion.__text}}</p>
+					<p>{{singleGame.version}}</p>
 				</div>		
 				<div class="row">
 					<label for="publicationyear">Publicaton year</label>
-					<p>{{singleGame.yearpublished}}</p>
+					<p>{{singleGame.year}}</p>
+				</div>
+				<div class="row">
+					<label for="age">Suggested Age</label>
+					<p>{{singleGame.suggestedAge}}</p>
 				</div>
 				<div class="row">
 					<label for="publicationyear">Description</label>
-					<p>{{singleGame.description}}</p>
+					<p ng-bind-html="singleGame.description"></p>
 				</div>
+				
 				<div class="row">
 					<label for="category">Category</label>
-					<ul ng-repeat="category in singleGame.boardgamecategory">
-						<li>{{category.__text}}</li>
+					<ul ng-repeat="category in singleGame.categories">
+						<li>{{category}}</li>
+					</ul>
+				</div>
+
+				<div class="row">
+					<label for="mechanic">Mechanic</label>
+					<ul ng-repeat="mechanic in singleGame.mechanics">
+						<li>{{mechanic}}</li>
 					</ul>
 				</div>
 
@@ -49,13 +74,21 @@
 
 				<div class="row">
 					<label for="minplaytime">Minimum playing time</label>
-					<p>{{singleGame.minplaytime}}</p>
+					<p>{{singleGame.mintime}}</p>
 				</div>
 
 				<div class="row">
-					<label for="maxplaytime">Maximum players</label>
-					<p>{{singleGame.maxplaytime}}</p>
+					<label for="maxplaytime">Maximum playing time</label>
+					<p>{{singleGame.maxtime}}</p>
 				</div>
+
+				<div class="row">
+					<label for="honor">Honors</label>
+					<ul ng-repeat="honor in singleGame.honors">
+						<li>{{honor}}</li>
+					</ul>
+				</div>
+
 			</div>
 		</div>
 
