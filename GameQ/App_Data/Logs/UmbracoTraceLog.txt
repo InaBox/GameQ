@@ -452,3 +452,5 @@
 2015-04-11 23:10:33,302 [6] INFO  umbraco.BusinessLogic.Log - [Thread 45] Log scrubbed.  Removed all items older than 2015-02-10 23:10:33
 2015-04-11 23:11:59,717 [6] INFO  umbraco.BusinessLogic.Log - [Thread 47] Log scrubbed.  Removed all items older than 2015-02-10 23:11:59
 2015-04-11 23:13:26,126 [6] INFO  umbraco.BusinessLogic.Log - [Thread 47] Log scrubbed.  Removed all items older than 2015-02-10 23:13:26
+2015-04-11 23:17:45,345 [6] INFO  umbraco.BusinessLogic.Log - [Thread 37] Log scrubbed.  Removed all items older than 2015-02-10 23:17:45
+2015-04-11 23:19:11,756 [6] INFO  umbraco.BusinessLogic.Log - [Thread 37] Log scrubbed.  Removed all items older than 2015-02-10 23:19:11
