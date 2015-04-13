@@ -1,0 +1,105 @@
+<div class="row">
+		<div class="col-md-12">
+			<h1 ng-bind="singleGame.name" class="h1"></h1>
+				<ul class="col-md-6">
+					<li class="row">
+						<img src="{{singleGame.image}}" alt="{{singleGame.name}}" class="col-md-6" style="max-width:200px; padding:0;">
+						<div class="col-md-6">
+							<h4>Name</h4>
+							<p>{{singleGame.name}}</p>
+						</div>
+					</li>
+
+					<li class="row">
+						<h4>Designers</h4>
+						<ul ng-repeat="designer in singleGame.designers">
+							<li>{{designer}}</li>
+						</ul>	
+					</li>
+
+					<li class="row">
+						<h4>Boardgame family</h4>
+						<p>{{singleGame.family}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Publishers</h4>
+						<ul ng-repeat="publisher in singleGame.publishers">
+							<li>{{publisher}}</li>
+						</ul>
+					</li>
+
+					<li class="row">
+						<h4>Artists</h4>
+						<ul ng-repeat="artist in singleGame.artists">
+							<li>{{artist}}</li>
+						</ul>
+					</li>
+
+					<li class="row">
+						<h4>Boardgame version</h4>
+						<p>{{singleGame.version}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Publicaton year</h4>
+						<p>{{singleGame.year}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Suggested Age</h4>
+						<p>{{singleGame.suggestedAge}}</p>
+					</li>
+				</ul>
+				<ul class="col-md-6">
+					<li class="row">
+						<h4>Description</h4>
+						<p ng-bind-html="singleGame.description"></p>
+					</li>
+
+					<li class="row">
+						<h4>Category</h4>
+						<ul ng-repeat="category in singleGame.categories">
+							<li>{{category}}</li>
+						</ul>
+					</li>
+
+					<li class="row">
+						<h4>Mechanic</h4>
+						<ul ng-repeat="mechanic in singleGame.mechanics">
+							<li>{{mechanic}}</li>
+						</ul>
+					</li>
+
+					<li class="row">
+						<h4>Minimum players</h4>
+						<p>{{singleGame.minplayers}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Maximum players</h4>
+						<p>{{singleGame.maxplayers}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Minimum playing time</h4>
+						<p>{{singleGame.mintime}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Maximum playing time</h4>
+						<p>{{singleGame.maxtime}}</p>
+					</li>
+
+					<li class="row">
+						<h4>Honors</h4>
+						<ul ng-repeat="honor in singleGame.honors">
+							<li>{{honor}}</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		<button ng-click="addGame(singleGame)" class="btn default-btn">Add game</button>
+</div>
