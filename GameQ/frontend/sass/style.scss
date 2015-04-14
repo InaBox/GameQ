@@ -1,17 +1,18 @@
 @import "compass/reset";
 
+//helpers - reusable snippets of css, variables, functions, mixins
+@import "helpers/variables";
 
 //basis styles - reset, typography, simple html elements
 
 @import "base/bootstrap";
 @import "base/bootstrap-theme";
 @import "base/normalize";
+@import "base/fonts";
 
 //layout - layout, grid, header, footer, sidebar
 
 @import "layout/header";
-
-//helpers - reusable snippets of css, variables, functions, mixins
 
 //components - styling of reusable elements on the site: buttons, tabs, navigations
 

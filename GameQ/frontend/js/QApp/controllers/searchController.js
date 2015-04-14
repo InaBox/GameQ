@@ -1,11 +1,16 @@
-
-gameQApp.controller('SearchController', function ($scope, $http) {
+gameQApp.controller('SearchController', function ($scope, $http, singleGameFactory) {
+	//xml to json converter
 	var x2js = new X2JS();
 
+	//search games on boardgamegeek on search-button click 
 	$scope.searchGames = function(query) {
+		//ask boardgamergeek for games
 		$http.get('http://localhost:9292/www.boardgamegeek.com/xmlapi/search?search=' + query).success(function(data) {
+			//on success, convert result to json
 		  	var jsonGames =  x2js.xml_str2json( data );
+		  	//expose result on scope
 		  	$scope.games = jsonGames.boardgames.boardgame;
+		  	
 		  	if ($scope.games == undefined) {
 		  		$scope.search.message = "No results";
 		  	} else {
@@ -15,10 +20,13 @@ gameQApp.controller('SearchController', function ($scope, $http) {
 	}
 
 	$scope.getGame = function(id) {
-		$http.get('http://localhost:9292/www.boardgamegeek.com/xmlapi/boardgame/' + id).success(function(data) {
-		  	var jsonGame =  x2js.xml_str2json( data );
-		  	$scope.singleGame = jsonGame.boardgames.boardgame;
-		});
+		//use factory to get specific game 
+		singleGameFactory.getGameDetails(id, $scope);
+	}
+
+	$scope.saveGame = function(singleGame) {
+		//TODO: 
+		// - call to backend controller that will save data as Umbraco node
 	}
 
 });

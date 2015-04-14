@@ -1,12 +1,32 @@
+//TODO: 
+// - Move functionality to backend
+// - controller to get data, populate a model and send JSON back
+
 gameQApp.factory('singleGameFactory', function ($http) {
 	return {
+		//getting game data from boardgamergeek
 		getGameDetails: function(gameId, scope) {
 			var x2js = new X2JS();
 			$http.get('http://localhost:9292/www.boardgamegeek.com/xmlapi/boardgame/' + gameId).success(function(data) {
+				//on success, convert xml to json
 			  	var jsonGame =  x2js.xml_str2json( data );
 			  	var gameObject = jsonGame.boardgames.boardgame;
 
+			  	//manualy build an object
+			  	//to ensure uniformity of data to display 
 			  	var game =  {};
+
+			  	organiseData = function(outputArray, jsonProperty) {
+					if (jsonProperty != null) {
+						if (angular.isArray(jsonProperty)) {
+						  	angular.forEach(jsonProperty, function(value, key) {
+						  		outputArray.push(value.__text);
+						  	});
+						} else {
+							outputArray.push(jsonProperty.__text);
+						}
+				  	}
+			  	};
 
 			  	game.name = gameObject.name.__text;
 			  	game.year = gameObject.yearpublished;
@@ -18,79 +38,29 @@ gameQApp.factory('singleGameFactory', function ($http) {
 			  	game.maxtime = gameObject.maxplaytime;
 			  	game.suggestedAge = gameObject.age;
 			  	game.image = gameObject.image;
-			  	game.family = gameObject.boardgamefamily;
+			  	
+			  	game.family = [];
+			  	organiseData(game.family, gameObject.boardgamefamily);
 
 			  	game.designers = [];
-			  	if (gameObject.boardgamedesigner != null) {
-					if (angular.isArray(gameObject.boardgamedesigner)) {
-					  	angular.forEach(gameObject.boardgamedesigner, function(designer, key) {
-					  		game.designers.push(designer.__text);
-					  	});
-					} else {
-						game.designers.push(gameObject.boardgamedesigner.__text);
-					}
-			  	}
-			  	
+			 	organiseData(game.designers, gameObject.boardgamedesigner); 
 
-			  	game.publishers = [];
-			  	if (gameObject.boardgamepublisher != null) {
-				  	if (angular.isArray(gameObject.boardgamepublisher)) {
-					  	angular.forEach(gameObject.boardgamepublisher, function(publisher, key) {
-					  		game.publishers.push(publisher.__text);
-					  	});
-					} else {
-						game.publishers.push(gameObject.boardgamepublisher.__text);
-					}
-			  	}
+			 	game.publishers = [];
+				organiseData(game.publishers, gameObject.boardgamepublisher); 
 
 				game.categories = [];
-				if (gameObject.boardgamecategory != null) {
-				  	if (angular.isArray(gameObject.boardgamecategory)) {
-					  	angular.forEach(gameObject.boardgamecategory, function(category, key) {
-					  		game.categories.push(category.__text);
-					  	});
-					} else {
-						game.categories.push(gameObject.boardgamecategory.__text);
-					}
-				}
-
+				organiseData(game.categories, gameObject.boardgamecategory); 
 
 				game.artists = [];
-				if (gameObject.boardgameartist != null) {
-				  	if (angular.isArray(gameObject.boardgameartist)) {
-					  	angular.forEach(gameObject.boardgameartist, function(artist, key) {
-					  		game.artists.push(artist.__text);
-					  	});
-					} else {
-						game.artists.push(gameObject.boardgameartist.__text);
-					}
-				}
+				organiseData(game.artists, gameObject.boardgameartist);
 				
 				game.honors = [];
-				if (gameObject.boardgamehonor != null) {
-				  	if (angular.isArray(gameObject.boardgamehonor)) {
-					  	angular.forEach(gameObject.boardgamehonor, function(honor, key) {
-					  		game.honors.push(honor.__text);
-					  	});
-					} else {
-						game.honors.push(gameObject.boardgamehonor.__text);
-					}
-				}
+				organiseData(game.honors, gameObject.boardgamehonor);
 
 				game.mechanics = [];
-				if (gameObject.boardgamemechanic) {
-				  	if (angular.isArray(gameObject.boardgamemechanic)) {
-					  	angular.forEach(gameObject.boardgamemechanic, function(mechanic, key) {
-					  		game.mechanics.push(mechanic.__text);
-					  	});
-					} else {
-						game.mechanics.push(gameObject.boardgamemechanic.__text);
-					}
-				}
+				organiseData(game.mechanics, gameObject.boardgamemechanic);
 
 			  	scope.singleGame = game;
-			  	console.log(scope.singleGame);
-			  	console.log(gameObject);
 			});
 		}
 	};

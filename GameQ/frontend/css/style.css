@@ -63,6 +63,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+/*Colors*/
+/*Typography*/
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -7235,6 +7237,13 @@ button.close {
 /* line 2, ../sass/base/_normalize.scss */
 ul li {
   padding: .5em;
+}
+
+/* line 1, ../sass/base/_fonts.scss */
+h1,
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
 }
 
 /* line 1, ../sass/layout/_header.scss */

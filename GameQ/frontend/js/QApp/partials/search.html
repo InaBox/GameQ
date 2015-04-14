@@ -1,12 +1,13 @@
 <div class="row" ng-controller='SearchController'>
-		
-		<div class="search-result col-md-9">
-
+	<div class="search-result col-md-9">
+		<!-- Search form -->
 			<div class="form-inline">
 				<input type="text" ng-model="search.query" name="search" id="search" class="form-control col-md-4">
 				<button ng-click="searchGames(search.query)" class="btn btn-default">Search</button>
 			</div>
+		<!-- /Search form -->
 
+		<!-- Search result list -->
 			<h2>{{search.message}}</h2>
 		    <ul>
 		    	<li ng-repeat="game in games" class="row">
@@ -19,9 +20,11 @@
 		    		</div>
 		    	</li>
 		    </ul>
-		</div>
+		<!-- /Search result list -->
+	</div>
 
-		<div class="col-md-3">
+	<div class="col-md-3">
+		<!-- Add game form -->
 			<h3 ng-bind="singleGame.name"></h3>
 			<div>
 				<div class="form-group">
@@ -31,12 +34,42 @@
 
 				<div class="form-group">
 					<label for="publicationyear">Publicaton year</label>
-					<input type="text" name="publicationyear" id="publicationyear" ng-value="singleGame.yearpublished" class="form-control">
+					<input type="text" name="publicationyear" id="publicationyear" ng-value="singleGame.year" class="form-control">
 				</div>
 
 				<div class="form-group">
-					<label for="category">Category</label>
-					<input type="text" name="category" id="category" ng-value="singleGame.boardgamecategory" class="form-control">
+					<label for="category">Categories</label>
+					<input type="text" name="category" id="category" ng-value="singleGame.categories" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="designers">Designers</label>
+					<input type="text" name="designers" id="designers" ng-value="singleGame.designers" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="family">Boardgame family</label>
+					<input type="text" name="family" id="family" ng-value="singleGame.family" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="publishers">Publishers</label>
+					<input type="text" name="publishers" id="publishers" ng-value="singleGame.publishers" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="artists">Artists</label>
+					<input type="text" name="artists" id="artists" ng-value="singleGame.artists" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="mechanics">Mechanic</label>
+					<input type="text" name="mechanics" id="mechanics" ng-value="singleGame.mechanics" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="description">Description</label>
+					<textarea name="description" id="description" class="form-control" ng-bind-html="singleGame.description"></textarea>
 				</div>
 
 				<div class="form-group">
@@ -51,14 +84,15 @@
 
 				<div class="form-group">
 					<label for="minplaytime">Minimum playing time</label>
-					<input type="text" name="minplaytime" id="minplaytime" ng-value="singleGame.minplaytime" class="form-control">
+					<input type="text" name="minplaytime" id="minplaytime" ng-value="singleGame.mintime" class="form-control">
 				</div>
 
 				<div class="form-group">
 					<label for="maxplaytime">Maximum players</label>
-					<input type="text" name="maxplaytime" id="maxplaytime" ng-value="singleGame.maxplaytime" class="form-control">
+					<input type="text" name="maxplaytime" id="maxplaytime" ng-value="singleGame.maxtime" class="form-control">
 				</div>
-
+				<button ng-click="saveGame(singleGame)" class="btn btn-default">Save</button>
 			</div>
-		</div>
+		<!-- /Add game form -->
+	</div>
 </div>

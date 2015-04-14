@@ -1,6 +1,7 @@
 <div class="row">
+	<!-- Game details -->
 		<div class="col-md-12">
-			<h1 ng-bind="singleGame.name" class="h1"></h1>
+			<h1 ng-bind="singleGame.name"></h1>
 				<ul class="col-md-6">
 					<li class="row">
 						<img src="{{singleGame.image}}" alt="{{singleGame.name}}" class="col-md-6" style="max-width:200px; padding:0;">
@@ -19,7 +20,9 @@
 
 					<li class="row">
 						<h4>Boardgame family</h4>
-						<p>{{singleGame.family}}</p>
+						<ul ng-repeat="family in singleGame.family">
+							<li>{{family}}</li>
+						</ul>
 					</li>
 
 					<li class="row">
@@ -35,28 +38,7 @@
 							<li>{{artist}}</li>
 						</ul>
 					</li>
-
-					<li class="row">
-						<h4>Boardgame version</h4>
-						<p>{{singleGame.version}}</p>
-					</li>
-
-					<li class="row">
-						<h4>Publicaton year</h4>
-						<p>{{singleGame.year}}</p>
-					</li>
-
-					<li class="row">
-						<h4>Suggested Age</h4>
-						<p>{{singleGame.suggestedAge}}</p>
-					</li>
-				</ul>
-				<ul class="col-md-6">
-					<li class="row">
-						<h4>Description</h4>
-						<p ng-bind-html="singleGame.description"></p>
-					</li>
-
+					
 					<li class="row">
 						<h4>Category</h4>
 						<ul ng-repeat="category in singleGame.categories">
@@ -72,34 +54,51 @@
 					</li>
 
 					<li class="row">
-						<h4>Minimum players</h4>
-						<p>{{singleGame.minplayers}}</p>
-					</li>
-
-					<li class="row">
-						<h4>Maximum players</h4>
-						<p>{{singleGame.maxplayers}}</p>
-					</li>
-
-					<li class="row">
-						<h4>Minimum playing time</h4>
-						<p>{{singleGame.mintime}}</p>
-					</li>
-
-					<li class="row">
-						<h4>Maximum playing time</h4>
-						<p>{{singleGame.maxtime}}</p>
-					</li>
-
-					<li class="row">
 						<h4>Honors</h4>
 						<ul ng-repeat="honor in singleGame.honors">
 							<li>{{honor}}</li>
 						</ul>
 					</li>
+
+				</ul>
+				<ul class="col-md-6">
+					<li class="row">
+						<h4>Description</h4>
+						<p ng-bind-html="singleGame.description"></p>
+					</li>
+
+					<li class="row">
+						<h4>Boardgame version: {{singleGame.version}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Publicaton year: {{singleGame.year}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Suggested Age: {{singleGame.suggestedAge}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Minimum players: {{singleGame.minplayers}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Maximum players: {{singleGame.maxplayers}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Minimum playing time: {{singleGame.mintime}}</h4>
+					</li>
+
+					<li class="row">
+						<h4>Maximum playing time: {{singleGame.maxtime}}</h4>
+					</li>
+
 				</ul>
 
 			</div>
 		</div>
-		<button ng-click="addGame(singleGame)" class="btn default-btn">Add game</button>
+	<!-- /Game details -->
+	<button ng-click="addGame(singleGame)" class="btn default-btn">Add game</button>
 </div>
