@@ -1,3 +1,6 @@
+//TODO:
+// - persist data when coming back from details page
+
 gameQApp.controller('SearchController', function ($scope, $http, singleGameFactory) {
 	//xml to json converter
 	var x2js = new X2JS();
