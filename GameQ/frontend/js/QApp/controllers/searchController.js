@@ -14,10 +14,10 @@ gameQApp.controller('SearchController', function ($scope, $http, singleGameFacto
 		  	//expose result on scope
 		  	$scope.games = jsonGames.boardgames.boardgame;
 		  	
-		  	if ($scope.games == undefined) {
-		  		$scope.search.message = "No results";
+		  	if ($scope.games === undefined) {
+		  		$scope.search.message = 'No results';
 		  	} else {
-		  		$scope.search.message = "Your search gave " + $scope.games.length + " results";
+		  		$scope.search.message = 'Your search gave ' + $scope.games.length + ' results';
 		  	};
 		});
 	}
